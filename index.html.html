@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/poetsen-one" rel="stylesheet"> <!-- font poetsen -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- script sweetalert -->
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Sudoku</title>
+</head>
+<body>
+    <div class="home1" id="pag1">
+        <div class="button-container">
+            <button class="info-button" onclick="info()">
+                <img src="immagini/info.png" alt="">
+            </button>
+            <button class="home-button" onclick="home()">
+                <img src="immagini/home.png" alt="">
+            </button>
+        </div>
+        <button class="play" onclick="play()">
+            <img src="immagini/play.png" alt="">
+        </button>
+    </div>
+
+    <div class="home2" id="pag2" style="display: none;">
+        <div class="button-container">
+            <button class="info-button" onclick="info()">
+                <img src="immagini/info.png" alt="">
+            </button>
+            <button class="home-button" onclick="home()">
+                <img src="immagini/home.png" alt="">
+            </button>
+        </div>
+        <div class="btn-livelli">
+            <button class="liv-button" onclick="facile()">
+                <img src="immagini/facile.png" alt="">
+            </button>
+            <button class="liv-button" onclick="medio()">
+                <img src="immagini/medio.png" alt="">
+            </button>
+            <button class="liv-button" onclick="difficile()">
+                <img src="immagini/difficile.png" alt="">
+            </button>
+        </div>
+    </div>
+
+    <div class="home3" id="pag3" style="display: none;">
+        <div class="button-container">
+            <button class="info-button" onclick="info()">
+                <img src="immagini/info.png" alt="">
+            </button>
+            <button class="home-button" onclick="home()">
+                <img src="immagini/home.png" alt="">
+            </button>
+            <button class="verify-button">
+                <img src="immagini/verifica.png" alt="" onclick="verifica()">
+            </button>
+        </div>
+
+        <div id="input-container">
+            <div id="q1">
+                <input type="number" oninput="limitaValore(this)" id="n1" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n2" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n3" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n4" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n5" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n6" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+            </div>
+            <div id="q2">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n7" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n8" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n9" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n10" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n11" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n12" class="input-box">
+            </div>
+            <div id="q3">
+                <input type="number" oninput="limitaValore(this)" id="n13" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n14" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n15" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n16" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n17" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n18" class="input-box">
+            </div>
+            <div id="q4">
+                <input type="number" oninput="limitaValore(this)" id="n19" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n20" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n21" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n22" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n23" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n24" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n25" class="input-box">
+            </div>
+            <div id="q5">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n26" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n27" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n28" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n29" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n30" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n31" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n32" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n33" class="input-box">
+            </div>
+            <div id="q6">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n34" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n35" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n36" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n37" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n38" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n39" class="input-box">
+            </div>
+            <div id="q7">
+                <input type="number" oninput="limitaValore(this)" id="n40" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n41" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n42" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n43" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n44" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n45" class="input-box">
+            </div>
+            <div id="q8">
+                <input type="text" class="blank input-box" readonly>
+                <input type="text" class="blank input-box" readonly>
+                <input type="number" oninput="limitaValore(this)" id="n46" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n47" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n48" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n49" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n50" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n51" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n52" class="input-box">
+            </div>
+            <div id="q9">
+                <input type="number" oninput="limitaValore(this)" id="n53" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n54" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n55" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n56" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n57" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n58" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n59" class="input-box">
+                <input type="number" oninput="limitaValore(this)" id="n60" class="input-box">
+                <input type="text" class="blank input-box" readonly>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

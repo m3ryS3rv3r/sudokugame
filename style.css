@@ -1,0 +1,163 @@
+body {
+    background-color: #3d3d3d;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(immagini/Sudoku.png);
+    color: white;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+.home1 {
+    position: relative; /* Imposta il posizionamento relativo per consentire il posizionamento assoluto dei pulsanti all'interno */
+    width: 100%; /* Imposta la larghezza del div al 100% della larghezza della finestra del browser */
+    height: 90vh; /* Imposta l'altezza del div al 90% dell'altezza della finestra del browser */
+    overflow: hidden; /* Nasconde il contenuto che supera i limiti del div */
+}
+.sfondo_home {
+    width: 100%; /* Imposta la larghezza dell'immagine al 100% del div home1 */
+    height: 110%; /* Imposta l'altezza dell'immagine al 100% del div home1 */
+    overflow: hidden;
+}
+.button-container {
+    position: absolute; /* Imposta il posizionamento assoluto per posizionare i pulsanti all'interno di home1 */
+    top: 10px; /* Distanza dal bordo superiore di home1 */
+    right: 10px; /* Distanza dal bordo destro di home1 */
+}
+
+.play {
+    position: absolute; /* Imposta il posizionamento assoluto */
+    top: 75%; /* Posiziona il pulsante nella metà superiore dello schermo */
+    left: 50%; /* Posiziona il pulsante nella metà sinistra dello schermo */
+    transform: translate(-50%, -50%); /* Trasla il pulsante di -50% della sua larghezza e altezza rispetto al suo centro */
+    background: none;
+    border: none;
+}
+.play img {
+    width: 13%;
+    height: auto;
+    cursor: pointer;
+    animation: pulse 1.5s infinite; /* Applica l'animazione "pulse" al pulsante con durata di 1.5 secondi e ripetizione infinita */
+}
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+.info-button {
+    position: absolute;
+    top: 10px; /* Distanza dalla parte superiore */
+    right: 10px; /* Distanza dalla parte destra */
+    background: none;
+    border: none;
+    z-index: 1; /* Assicura che il pulsante sia sopra il resto del contenuto */
+}
+.info-button img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+.home-button {
+    position: absolute;
+    top: 10px; /* Distanza dalla parte superiore */
+    right: 50px; /* Distanza dalla parte destra */
+    background: none;
+    border: none;
+    z-index: 1; /* Assicura che il pulsante sia sopra il resto del contenuto */
+}
+.home-button img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+.verify-button {
+    position: absolute;
+    top: 9px; /* Distanza dalla parte superiore */
+    right: 90px; /* Distanza dalla parte destra */
+    background: none;
+    border: none;
+    z-index: 1; /* Assicura che il pulsante sia sopra il resto del contenuto */
+}
+.verify-button img {
+    height: 35px;
+    width: auto;
+    cursor: pointer;
+}
+
+
+.home2 {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente i pulsanti */
+    align-items: center; /* Centra verticalmente i pulsanti */
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+}
+.btn-livelli {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente i pulsanti all'interno del loro contenitore */
+    margin-top: 25%;
+}
+.liv-button {
+    background: none;
+    border: none;
+    margin: 0 65px; /* Aggiungi margine orizzontale tra i pulsanti */
+}
+.liv-button img {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+}
+
+.input-box:hover {
+    background-color: #606060;
+}
+.input-box[type="number"]::-webkit-inner-spin-button, /* serve a togliere le freccette nelle caselle di input */
+.input-box[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+.input-box {
+    color: white;
+    font-family: 'Poetsen One', sans-serif;
+    background-color: #525252;
+    font-size: large;
+    width: 19px;
+    height: 19px;
+    border-radius: 100%;
+    text-align: center;
+    margin: 0 10px 10px 0; /* Margine tra le caselle di input */
+    outline: none;
+}
+#input-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* 3 colonne di larghezza automatica */
+    grid-template-rows: repeat(3, auto); /* 3 righe di altezza automatica */
+    grid-gap: 15px; /* Spaziatura tra le sezioni */
+    width: calc(22px * 9 + 20px * 8); /* Larghezza del container calcolata in base alle dimensioni delle caselle e alla spaziatura */
+    height: calc(22px * 9 + 20px * 8); /* Altezza del container calcolata in base alle dimensioni delle caselle e alla spaziatura */
+    position: absolute; /* Posizionamento assoluto */
+    top: 62%; /* Posiziona al centro verticale */
+    left: 50%; /* Posiziona al centro orizzontale */
+    transform: translate(-50%, -50%); /* Centra rispetto al suo centro */
+}
+#q1, #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9 {
+    margin: 1px 23px 23px 0; /* Margine tra le sezioni (alto, destra, basso, sinistra) */
+    display: grid;
+    grid-template-columns: repeat(3, 22px); /* 3 colonne di larghezza fissa */
+    grid-template-rows: repeat(3, 22px); /* 3 righe di altezza fissa */
+    grid-gap: 13px; /* Spaziatura tra le caselle di input */
+}
+.blank {
+    background: none;
+}
+.blank:hover {
+    background: none;
+}
